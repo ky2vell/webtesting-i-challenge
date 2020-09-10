@@ -10,7 +10,7 @@ describe('enhancer unit tests', () => {
   });
 
   describe('sucess function', () => {
-    it('should increase enhancement by 1 and not change durability ', () => {
+    it('should increase enhancement by 1 and not change durability', () => {
       let actual = { durability: 77, enhancement: 15 };
       let expected = { durability: 77, enhancement: 16 };
       expect(success(actual)).toStrictEqual(expected);
@@ -38,6 +38,14 @@ describe('enhancer unit tests', () => {
       let actual = { durability: 70, enhancement: 17 };
       let expected = { durability: 60, enhancement: 16 };
       expect(fail(actual)).toStrictEqual(expected);
+    });
+  });
+
+  describe('get function', () => {
+    it('should display enhancment level prior to name if greater than zero', () => {
+      let actual = { name: 'Link', enhancement: 17 };
+      let expected = { name: '[+17] Link', enhancement: 17 };
+      expect(get(actual)).toStrictEqual(expected);
     });
   });
 });
